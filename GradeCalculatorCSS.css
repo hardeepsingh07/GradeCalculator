@@ -1,0 +1,25 @@
+#background {
+    background-color: #2A2A2A;
+}
+.jumbotron {
+    background-color: #003939;
+    align-content: center;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-family: i;
+}
+.container-titles {
+    color: white;
+    text-align: left;
+    font-family: t;
+}
+.entry:not(:first-of-type) {
+    margin-top: 10px;
+}
+.glyphicon {
+    font-size: 12px;
+}
+td {
+    padding: 2px;
+}

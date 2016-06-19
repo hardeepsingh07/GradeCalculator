@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <meta charset="UTF-8">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="gradecalculatorjs.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="GradeCalculatorCSS.css">
+    <meta name="viewport" content="width = device_width, intial-scale = 1">
+
+    <title>Grade Calculator</title>
+</head>
+
+<!-- Start of Body -->
+<body id="background">
+<div class="container">
+    <div class="jumbotron">
+        <h1>Grade Calculator</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="container-titles">
+        <h4>Weights</h4>
+        <div class="container">
+            <table id="weightTable">
+                <tbody id="weightBody">
+                <tr id="rowData0">
+                    <!--First Index 1 -->
+                    <div id="cell0">
+                        <td>
+                            <input class="form-control" name="category[]" type="text" placeholder="Category Name"/>
+                        </td>
+                        <td>
+                            <input class="form-control" name="weights[]" type="text" placeholder="Weights %"/>
+                        </td>
+                        <td>
+                            <button class="btn btn-success btn-add" type="button">
+                                <i class="glyphicon glyphicon-plus gs"></i>
+                            </button>
+                        </td>
+                    </div>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <input type="button" class="btn btn-primary" id="test" value="Check"/>
+    </div>
+</div>
+</body>
+</html>
