@@ -3,15 +3,15 @@
  */
 var count = 0;      //number of cells in a row
 var i = 0;          //number of rows
-var cc = 1;         //keep track of cell
-
+var cc = 0;
 function add() {
     //Create a new div representation each cell
+    var row = document.getElementById("rowData" + i);
+    console.log("rowData" + i);
     var cell = document.createElement("div");
     cell.setAttribute("id", "cell" + cc);
-    console.log(i);
-    console.log(cc + " :Cc")
-    document.getElementById("rowData" + i).appendChild(cell);
+    console.log("cell" + cc);
+    row.appendChild(cell);
 
     //Create Category Input Filled
     var td = document.createElement("td");
@@ -21,7 +21,7 @@ function add() {
     y.setAttribute("Name", "category[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y);
-    document.getElementById("cell" + cc).appendChild(td);
+    cell.appendChild(td);
 
     //Create Weight Input Filed
     var td = document.createElement("td");
@@ -31,7 +31,7 @@ function add() {
     y.setAttribute("Name", "weights[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y);
-    document.getElementById("cell" + cc).appendChild(td);
+    cell.appendChild(td);
 
     //Create Button to remove field
     var td = document.createElement("td");
@@ -41,10 +41,9 @@ function add() {
     icon.setAttribute("Class", "glyphicon glyphicon-minus gs");
     button.appendChild(icon);
     td.appendChild(button);
-    document.getElementById("cell" + cc).appendChild(td);
+    cell.appendChild(td);
 
     count++;
-    cc++;
 }
 
 $(function () {
@@ -52,7 +51,6 @@ $(function () {
         e.preventDefault();
         if (count == 2) {
             trigger = 0;
-            cc = 0;
             i++;
             //set up the new row
             var tr = document.createElement("tr");
@@ -62,6 +60,7 @@ $(function () {
             add();
             count = 0;
         } else {
+            cc++;
             //add new cell
             add();
         }
