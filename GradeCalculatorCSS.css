@@ -1,6 +1,6 @@
 #background {
-    background-color: #2A2A2A;
-}
+     background-color: #2A2A2A;
+ }
 .jumbotron {
     background-color: #003939;
     align-content: center;
@@ -20,6 +20,30 @@
 .glyphicon {
     font-size: 12px;
 }
-td {
-    padding: 2px;
+.btn-add {
+    width: 100px;
+}
+.btn-remove  {
+    width: 100px;
+}
+
+/* Portlet Title */
+.portlet-title {
+    padding: 0;
+    min-height: 40px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 18px;
+}
+
+.caption {
+    float: left;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.caption.caption-green .caption-subject,
+.caption.caption-green i {
+    color: #4db3a2;
+    font-weight: 200;
 }
