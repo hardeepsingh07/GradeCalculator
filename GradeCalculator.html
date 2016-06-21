@@ -24,30 +24,44 @@
 </div>
 
 <div class="container">
-    <div class="container-titles">
-        <div class="portlet">
-            <div class="portlet-title">
-                <div class="caption caption-green">
-                    <i class="glyphicon glyphicon-knight"></i>
-                    <span class="caption-subject text-uppercase"> Weights </span>
-                </div>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-knight"></i>
+            <span class="caption-subject text-uppercase"> Weights </span>
+            <button class="btn btn-success btn-add-weight pull-right" type="button" >
+                <i class="glyphicon glyphicon-plus gs"></i>
+            </button>
         </div>
-        <div class="container">
+        <div class="panel-body" id="weight" align="center">
             <table id="weightTable">
                 <tbody id="weightBody">
-                <tr id="rowData0">
+                <tr id="rowData">
                     <!--First Cell-->
                     <td align="center">
+                        <button class="btn btn-link pull-right" type="button" hidden="true">
+                            <i class="glyphicon glyphicon-remove-circle gs"></i>
+                        </button>
                         <input class="form-control" name="category[]" type="text" placeholder="Category Name"/>
                         <input class="form-control" name="weights[]" type="text" placeholder="Weights %"/>
-                        <button class="btn btn-success btn-add" type="button">
-                            <i class="glyphicon glyphicon-plus gs"></i>
+                        <button class="btn btn-info btn-create-table" type="button">
+                            <i class="glyphicon glyphicon-list gs"> Create </i>
                         </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-stats"></i>
+            <span class="caption-subject text-uppercase"> Scores </span>
+        </div>
+        <div class="panel-body" id="score">
+           <!-- Table data is added through javascript based on weight criteria -->
         </div>
     </div>
 </div>

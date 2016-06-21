@@ -1,6 +1,7 @@
 #background {
-     background-color: #2A2A2A;
- }
+    background-color: #2A2A2A;
+}
+
 .jumbotron {
     background-color: #003939;
     align-content: center;
@@ -9,41 +10,43 @@
     font-style: italic;
     font-family: i;
 }
+
 .container-titles {
     color: white;
     text-align: left;
     font-family: t;
 }
-.entry:not(:first-of-type) {
-    margin-top: 10px;
-}
+
 .glyphicon {
-    font-size: 12px;
-}
-.btn-add {
-    width: 100px;
-}
-.btn-remove  {
-    width: 100px;
+    font-size: 15px;
 }
 
-/* Portlet Title */
-.portlet-title {
-    padding: 0;
-    min-height: 40px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 18px;
+td {
+    padding: 5px;
+}
+.btn-add-weight {
+    width: 50px;
+}
+.btn-create-table {
+    width: 150px;
 }
 
-.caption {
+.btn-add-score, .btn-remove-score {
+    width: 50px;
+}
+.score-table {
+    border: 1px solid #FFFFFF;
+    width: 200px;
     float: left;
-    display: inline-block;
-    font-size: 20px;
-    line-height: 18px;
 }
 
-.caption.caption-green .caption-subject,
-.caption.caption-green i {
-    color: #4db3a2;
-    font-weight: 200;
+.score-div {
+    border-right: dashed #eee;
+    width: 250px;
+    float: left;
+    padding: 10px;
+}
+h4 {
+    padding-bottom: 5px;
+    border-bottom: ridge #eee;
 }
