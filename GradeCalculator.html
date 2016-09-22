@@ -23,12 +23,14 @@
     </div>
 </div>
 
+
+<!--First Panel-->
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
             <i class="glyphicon glyphicon-knight"></i>
             <span class="caption-subject text-uppercase"> Weights </span>
-            <button class="btn btn-success btn-add-weight pull-right" type="button" >
+            <button class="btn btn-success btn-add-weight pull-right" type="button">
                 <i class="glyphicon glyphicon-plus gs"></i>
             </button>
         </div>
@@ -38,13 +40,13 @@
                 <tr id="rowData">
                     <!--First Cell-->
                     <td align="center">
-                        <button class="btn btn-link pull-right" type="button" hidden="true">
-                            <i class="glyphicon glyphicon-remove-circle gs"></i>
-                        </button>
                         <input class="form-control" name="category[]" type="text" placeholder="Category Name"/>
                         <input class="form-control" name="weights[]" type="text" placeholder="Weights %"/>
-                        <button class="btn btn-info btn-create-table" type="button">
+                        <button class="btn btn-info btn-create-table pull-left" type="button">
                             <i class="glyphicon glyphicon-list gs"> Create </i>
+                        </button>
+                        <button class="btn btn-link btn-remove-weight pull-right" type="button" hidden="true">
+                            <i class="glyphicon glyphicon-remove-circle gs"></i>
                         </button>
                     </td>
                 </tr>
@@ -53,7 +55,10 @@
         </div>
     </div>
 </div>
+
+<!--Second Panel-->
 <br>
+
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -61,7 +66,22 @@
             <span class="caption-subject text-uppercase"> Scores </span>
         </div>
         <div class="panel-body" id="score">
-           <!-- Table data is added through javascript based on weight criteria -->
+            <!-- Table data is added through javascript based on weight criteria -->
+        </div>
+    </div>
+</div>
+
+<!--Third Panel-->
+<br>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-education"></i>
+            <span class="caption-subject text-uppercase"> Calculations </span>
+        </div>
+        <div class="panel-body" id="calculations">
+            <!--work here-->
         </div>
     </div>
 </div>

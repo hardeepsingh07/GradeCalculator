@@ -26,9 +26,17 @@ td {
 }
 .btn-add-weight {
     width: 50px;
+    margin-top: -7px;
+    margin-right: -7px;
 }
 .btn-create-table {
+    margin-top: 5px;
     width: 150px;
+}
+
+.btn-remove-weight {
+    width: 50px;
+    margin-top: 5px;
 }
 
 .btn-add-score, .btn-remove-score {

@@ -4,6 +4,8 @@
 var count = 0;      //number of cells in a row
 //var i = 0;          //number of rows (for future)
 var cc = 0;
+var weight = "";
+var weightValue = 0;
 
 //function to add weights cells
 function add() {
@@ -13,15 +15,6 @@ function add() {
     var cell = document.createElement("td");
     cell.setAttribute("align", "center");
     row.appendChild(cell);
-
-    //Create remove icon
-    var button = document.createElement("button");
-    button.setAttribute("Class", "btn btn-link btn-remove-weight pull-right");
-    var icon = document.createElement("i");
-    icon.setAttribute("Class", "glyphicon glyphicon-remove-circle gs");
-    button.appendChild(icon);
-    cell.appendChild(button);
-    
 
     //Create Category Input Filled
     var y = document.createElement("input");
@@ -42,27 +35,35 @@ function add() {
 
     //Create Button to remove fields
     var button = document.createElement("button");
-    button.setAttribute("Class", "btn btn-info btn-create-table");
+    button.setAttribute("Class", "btn btn-info btn-create-table pull-left");
     var icon = document.createElement("i");
     icon.setAttribute("Class", "glyphicon glyphicon-list gs");
     var x = document.createTextNode(" Create");
     icon.appendChild(x);
     button.appendChild(icon);
     cell.appendChild(button);
+
+    //Create remove icon
+    var button = document.createElement("button");
+    button.setAttribute("Class", "btn btn-link btn-remove-weight pull-right");
+    var icon = document.createElement("i");
+    icon.setAttribute("Class", "glyphicon glyphicon-remove-circle gs");
+    button.appendChild(icon);
+    cell.appendChild(button);
     count++;
 }
 
-function createTable() {
+function createTable(category, weight) {
     //add table to second section
     var pbody = document.getElementById("score");
     var div = document.createElement("div");
     div.setAttribute("class", "score-div");
-    div.setAttribute("id", "WHATEVER");
+    div.setAttribute("id", category[category.length - 1].value + "-table");
     pbody.appendChild(div);
 
     var divH = document.createElement("div");
     var h4 = document.createElement("h4");
-    var t = document.createTextNode("WHATEVER");
+    var t = document.createTextNode(category[category.length - 1].value);
     h4.appendChild(t);
     divH.appendChild(h4);
 
@@ -76,7 +77,7 @@ function createTable() {
     div.appendChild(table);
 
     //add indial content to table
-    addScoreRow(false ,tbody);
+    addScoreRow(false, tbody);
 }
 
 //function to add score rows
@@ -87,7 +88,7 @@ function addScoreRow(trigger, incomingBody) {
     var y = document.createElement("input");
     y.setAttribute("type", "text");
     y.setAttribute("Placeholder", "Earned");
-    y.setAttribute("Name", "WHATEVER-earned[]");
+    y.setAttribute("Name", "earned[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y)
     row.appendChild(td);
@@ -98,7 +99,7 @@ function addScoreRow(trigger, incomingBody) {
     var y = document.createElement("input");
     y.setAttribute("type", "text");
     y.setAttribute("Placeholder", "Total");
-    y.setAttribute("Name", "WHATEVER-total[]");
+    y.setAttribute("Name", "total[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y);
     row.appendChild(td);
@@ -106,7 +107,7 @@ function addScoreRow(trigger, incomingBody) {
     //Create Button to remove fields
     var td = document.createElement("td");
     var button = document.createElement("button");
-    if(trigger) {
+    if (trigger) {
         button.setAttribute("Class", "btn btn-remove-score btn-danger");
         var icon = document.createElement("i");
         icon.setAttribute("Class", "glyphicon glyphicon-minus gs");
@@ -126,38 +127,40 @@ function addScoreRow(trigger, incomingBody) {
 $(function () {
     $(document).on('click', '.btn-add-weight', function (e) {
         e.preventDefault();
-        //for future enhacements
-        // if (count == 5) {
-        //     i++;
-        //     //set up the new row
-        //     var tr = document.createElement("tr");
-        //     tr.setAttribute("id", "rowData" + i);
-        //     document.getElementById("weightBody").appendChild(tr);
-        //     //add new cell
-        //     add();
-        //     count = 0;
-        // }
-        if(count < 4) {
+        if (count < 4) {
             //add new cell
             add();
         } else {
-           alert("Only 5 Fields are allowed");
+            alert("Only 5 Fields are allowed");
         }
     }).on('click', '.btn-remove-weight', function (e) {
         e.preventDefault();
+        //remove the weights input from weight menu
+        //get the weight criteria name
+        var text = $(this).siblings("input").val();
         $(this).parent().remove();
+
+        //remove the table associated with weight
+        var divElement = document.getElementById(text + "-table");
+        divElement.remove();
         count--;
         return false;
     }).on('click', '.btn-create-table', function (e) {
         e.preventDefault();
-        createTable();
+        var category = document.getElementsByName("category[]");
+        var weigtht = document.getElementsByName("weights[]");
+        if(category.length > 0) {
+            createTable(category, weight);
+            $(this).prop('disabled', true);
+        } else {
+            alert("Not possible");
+        }
         return false;
     }).on('click', '.btn-add-score', function (e) {
         e.preventDefault();
         //move from button to td, td to tr, tr to tbody
         var tbody = this.parentNode.parentNode.parentNode;
         addScoreRow(true, tbody);
-
     }).on('click', '.btn-remove-score', function (e) {
         e.preventDefault();
         $(this).parent().parent().remove();
