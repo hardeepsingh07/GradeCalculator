@@ -50,11 +50,18 @@ td {
 
 .score-div {
     border-right: dashed #eee;
-    width: 250px;
+    width: 220px;
     float: left;
     padding: 10px;
 }
 h4 {
     padding-bottom: 5px;
     border-bottom: ridge #eee;
+}
+
+#container {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    position: relative;
 }

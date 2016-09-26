@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="gradecalculatorjs.js"></script>
+    <script src="gradeCalculatorJS.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="GradeCalculatorCSS.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width = device_width, intial-scale = 1">
 
     <title>Grade Calculator</title>
@@ -40,8 +41,8 @@
                 <tr id="rowData">
                     <!--First Cell-->
                     <td align="center">
-                        <input class="form-control" name="category[]" type="text" placeholder="Category Name"/>
-                        <input class="form-control" name="weights[]" type="text" placeholder="Weights %"/>
+                        <input class="form-control" name="category[]" type="text" placeholder="Category Name" required/>
+                        <input class="form-control" name="weights[]"  type="number" min="0" max="100" placeholder="Weights %" required/>
                         <button class="btn btn-info btn-create-table pull-left" type="button">
                             <i class="glyphicon glyphicon-list gs"> Create </i>
                         </button>

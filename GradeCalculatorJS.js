@@ -2,10 +2,7 @@
  * Created by Singh on 6/17/2016.
  */
 var count = 0;      //number of cells in a row
-//var i = 0;          //number of rows (for future)
-var cc = 0;
-var weight = "";
-var weightValue = 0;
+var h4Heading = ""  //keep track of text
 
 //function to add weights cells
 function add() {
@@ -53,17 +50,22 @@ function add() {
     count++;
 }
 
-function createTable(category, weight) {
+function createTable(text) {
+    var category = document.getElementsByName("category[]");
+    var weigtht = document.getElementsByName("weights[]");
+
+
     //add table to second section
     var pbody = document.getElementById("score");
     var div = document.createElement("div");
     div.setAttribute("class", "score-div");
-    div.setAttribute("id", category[category.length - 1].value + "-table");
+    div.setAttribute("id", text + "-table");
     pbody.appendChild(div);
 
     var divH = document.createElement("div");
+    divH.setAttribute("align", "center");
     var h4 = document.createElement("h4");
-    var t = document.createTextNode(category[category.length - 1].value);
+    var t = document.createTextNode(text);
     h4.appendChild(t);
     divH.appendChild(h4);
 
@@ -77,18 +79,18 @@ function createTable(category, weight) {
     div.appendChild(table);
 
     //add indial content to table
-    addScoreRow(false, tbody);
+    addScoreRow(false, tbody, text);
 }
 
 //function to add score rows
-function addScoreRow(trigger, incomingBody) {
+function addScoreRow(trigger, incomingBody, title) {
     var row = document.createElement("tr");
 
     var td = document.createElement("td");
     var y = document.createElement("input");
     y.setAttribute("type", "text");
-    y.setAttribute("Placeholder", "Earned");
-    y.setAttribute("Name", "earned[]");
+    y.setAttribute("Placeholder", "E");
+    y.setAttribute("Name", title + "-earned[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y)
     row.appendChild(td);
@@ -98,8 +100,8 @@ function addScoreRow(trigger, incomingBody) {
     var td = document.createElement("td");
     var y = document.createElement("input");
     y.setAttribute("type", "text");
-    y.setAttribute("Placeholder", "Total");
-    y.setAttribute("Name", "total[]");
+    y.setAttribute("Placeholder", "T");
+    y.setAttribute("Name", title + "-total[]");
     y.setAttribute("Class", "form-control");
     td.appendChild(y);
     row.appendChild(td);
@@ -147,38 +149,45 @@ $(function () {
         return false;
     }).on('click', '.btn-create-table', function (e) {
         e.preventDefault();
-        var category = document.getElementsByName("category[]");
-        var weigtht = document.getElementsByName("weights[]");
-        if(category.length > 0) {
-            createTable(category, weight);
-            $(this).prop('disabled', true);
+        var text = $(this).siblings("input").val();
+        if (text == "" || text == null) {
+            alert("Name and Weight is required");
         } else {
-            alert("Not possible");
+            createTable(text);
+            $(this).prop('disabled', true);
         }
         return false;
     }).on('click', '.btn-add-score', function (e) {
         e.preventDefault();
         //move from button to td, td to tr, tr to tbody
         var tbody = this.parentNode.parentNode.parentNode;
-        addScoreRow(true, tbody);
+        var h4Body = this.parentNode.parentNode.parentNode.parentNode.previousSibling.firstChild;
+        var title = h4Body.innerHTML;
+        addScoreRow(true, tbody, title);
     }).on('click', '.btn-remove-score', function (e) {
         e.preventDefault();
         $(this).parent().parent().remove();
     }).on('click', '#test', function (e) {
         //Get Values of Title
-        // var titles =  document.getElementsByName("title[]");
-        // var result = "";
-        // for(var i = 0; i < titles.length; i++) {
-        //     result += titles[i].value;
-        // }
-        // alert(result);
-
-        //Get Values of Weights
+        var totalWeighted;
+        var weighted;
+        var titles = document.getElementsByName("category[]");
         var weights = document.getElementsByName("weights[]");
-        var result = "";
-        for (var i = 0; i < weights.length; i++) {
-            result += weights[i].value;
+        for (var i = 0; i < titles.length; i++) {
+            var earnedArray = document.getElementsByName(titles[i].value + "-earned[]");
+            var totalArray = document.getElementsByName(titles[i].value + "-total[]");
+            var earned = 0, total = 0;
+            for (var j = 0; j < earnedArray.length; j++) {
+                earned += parseInt(earnedArray[j].value);
+                total += parseInt(totalArray[j].value);
+            }
+            alert("Earned" + earned);
+            alert("Total" + total);
+            weighted = (earned / total) * weights[i].value;
         }
-        alert(result);
+        alert(weighted);
+        totalWeighted += weighted;
+        alert(totalWeighted);
     });
 });
+
