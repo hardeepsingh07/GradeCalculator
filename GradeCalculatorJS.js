@@ -261,37 +261,43 @@ $(function () {
         }
 
         //Create Rest of the Layout
-        var div
-        var divTotal = document.createElement("div");
-        div.setAttribute("class", "input-group totalCombinedInput");
-
-        var spanTotal = document.createElement("span");
-        span1.setAttribute("class", "input-group-addon");
-        var t1 = document.createTextNode("Overall Total");
-        span1.appendChild(t1);
-
-        var inputEarnedTotal = document.createElement("input");
-        input1.style.backgroundColor = "#FFFFFF";
-        input1.style.textAlign = "center";
-        input1.setAttribute("type", "text");
-        input1.setAttribute("class", "form-control");
-        input1.setAttribute("value", String(overallEarned));
-        input1.readOnly;
-
-        var spanTotal2 = document.createElement("span");
-        span2.setAttribute("class", "input-group-addon");
-        span2.style.borderLeft = "0";
-        span2.style.borderRight = "0";
-        var t2 = document.createTextNode("--");
-        span2.appendChild(t2);
-
-        var inputTotalTotal = document.createElement("input");
-        input2.style.backgroundColor = "#FFFFFF";
-        input2.style.textAlign = "center";
-        input2.setAttribute("type", "text");
-        input2.setAttribute("class", "form-control");
-        input2.setAttribute("value", String(overallTotal));
-        input2.readOnly;
+        // var divParentTotal = document.getElementById("overallTotalDiv");
+        // var divTotal = document.createElement("div");
+        // div.setAttribute("class", "input-group totalCombinedInput");
+        //
+        // var spanTotal = document.createElement("span");
+        // spanTotal.setAttribute("class", "input-group-addon");
+        // var totalText1 = document.createTextNode("Overall Total");
+        // spanTotal.appendChild(totalText1);
+        //
+        // var inputEarnedTotal = document.createElement("input");
+        // inputEarnedTotal.style.backgroundColor = "#FFFFFF";
+        // inputEarnedTotal.style.textAlign = "center";
+        // inputEarnedTotal.setAttribute("type", "text");
+        // inputEarnedTotal.setAttribute("class", "form-control");
+        // inputEarnedTotal.setAttribute("value", String(overallEarned));
+        // inputEarnedTotal.readOnly;
+        //
+        // var spanTotal2 = document.createElement("span");
+        // spanTotal2.setAttribute("class", "input-group-addon");
+        // spanTotal2.style.borderLeft = "0";
+        // spanTotal2.style.borderRight = "0";
+        // var totalText2 = document.createTextNode("--");
+        // span2.appendChild(totalText2);
+        //
+        // var inputTotalTotal = document.createElement("input");
+        // inputTotalTotal.style.backgroundColor = "#FFFFFF";
+        // inputTotalTotal.style.textAlign = "center";
+        // inputTotalTotal.setAttribute("type", "text");
+        // inputTotalTotal.setAttribute("class", "form-control");
+        // inputTotalTotal.setAttribute("value", String(overallTotal));
+        // inputTotalTotal.readOnly;
+        //
+        // divTotal.appendChild(spanTotal);
+        // divTotal.appendChild(inputEarnedTotal);
+        // divTotal.appendChild(spanTotal2);
+        // divTotal.appendChild(inputTotalTotal);
+        // divParentTotal.appendChild(divTotal);
 
     });
 });
