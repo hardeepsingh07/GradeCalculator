@@ -84,53 +84,20 @@
             <span class="caption-subject text-uppercase"> Calculations </span>
         </div>
 
-        <div class="panel-body" id="totalPanel">
+        <div class="panel-body" id="totalPanel" STYLE="display: none">
             <table id="totalTable">
                 <caption>Total Scores</caption>
                 <tbody id="totalTableBody">
-                <tr id="rowtData">
-                    <td align="center">
-                        <div class="input-group">
-                            <span class="input-group-addon">H</span>
-                            <input type="text" class="form-control" placeholder="Earned"/>
-                            <span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>
-                            <input type="text" class="form-control" placeholder="Total"/>
-                        </div>
-                    </td>
-                    <td align="center">
-                        <div class="input-group">
-                            <span class="input-group-addon">Q</span>
-                            <input type="text" class="form-control" placeholder="Earned"/>
-                            <span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>
-                            <input type="text" class="form-control" placeholder="Total"/>
-                        </div>
-                    </td>
-                    <td align="center">
-                        <div class="input-group">
-                            <span class="input-group-addon">M</span>
-                            <input type="text" class="form-control" placeholder="Earned"/>
-                            <span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>
-                            <input type="text" class="form-control" placeholder="Total"/>
-                        </div>
-                    </td>
-                    <td align="center">
-                        <div class="input-group">
-                            <span class="input-group-addon">F</span>
-                            <input type="text" class="form-control" placeholder="Earned"/>
-                            <span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>
-                            <input type="text" class="form-control" placeholder="Total"/>
-                        </div>
-                    </td>
-
-                    <td align="center">
-                        <div class="input-group">
-                            <span class="input-group-addon">P</span>
-                            <input type="text" class="form-control" placeholder="Earned"/>
-                            <span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>
-                            <input type="text" class="form-control" placeholder="Total"/>
-                        </div>
-                    </td>
-
+                <tr id="totalRowData">
+                    <!--<td align="center">-->
+                        <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon">H</span>-->
+                            <!--<input style="text-align: center; background-color: #FFFFFF" type="text" class="form-control"-->
+                                   <!--placeholder="Earned" value="98" readonly/>-->
+                            <!--<span class="input-group-addon" style="border-left: 0; border-right: 0;">-</span>-->
+                            <!--<input style="text-align: center; background-color: #FFFFFF" type="text" class="form-control"-->
+                                   <!--placeholder="Total" value="100" readonly/>-->
+                        <!--</div>-->
                 </tr>
                 </tbody>
             </table>
@@ -170,21 +137,13 @@
                 </div>
             </div>
 
-            <div class="c100 p50 big">
-                <span>50%</span>
-                <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                </div>
-            </div>
-
-            <div class="c100 p25">
-                <span>25%</span>
-                <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                </div>
-            </div>
+            <!--<div class="c100 p52 orange">-->
+            <!--<span>25%</span>-->
+            <!--<div class="slice">-->
+            <!--<div class="bar"></div>-->
+            <!--<div class="fill"></div>-->
+            <!--</div>-->
+            <!--</div>-->
 
         </div>
     </div>

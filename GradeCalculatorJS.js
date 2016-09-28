@@ -168,26 +168,131 @@ $(function () {
         e.preventDefault();
         $(this).parent().parent().remove();
     }).on('click', '#test', function (e) {
-        //Get Values of Title
-        var totalWeighted;
-        var weighted;
+        // //Get Values of Title
+        // var totalWeighted;
+        // var weighted;
+        // var titles = document.getElementsByName("category[]");
+        // var weights = document.getElementsByName("weights[]");
+        // for (var i = 0; i < titles.length; i++) {
+        //     var earnedArray = document.getElementsByName(titles[i].value + "-earned[]");
+        //     var totalArray = document.getElementsByName(titles[i].value + "-total[]");
+        //     var earned = 0, total = 0;
+        //     for (var j = 0; j < earnedArray.length; j++) {
+        //         earned += parseInt(earnedArray[j].value);
+        //         total += parseInt(totalArray[j].value);
+        //     }
+        //     alert("Earned" + earned);
+        //     alert("Total" + total);
+        //     weighted = (earned / total) * weights[i].value;
+        // }
+        // alert(weighted);
+        // totalWeighted += weighted;
+        // alert(totalWeighted);
+        document.getElementById('totalPanel').style.display = "block";
+
         var titles = document.getElementsByName("category[]");
         var weights = document.getElementsByName("weights[]");
+        var overallTotal = 0;
+        var overallEarned = 0;
+        var weighted;
+        var nonWeighted;
         for (var i = 0; i < titles.length; i++) {
-            var earnedArray = document.getElementsByName(titles[i].value + "-earned[]");
-            var totalArray = document.getElementsByName(titles[i].value + "-total[]");
-            var earned = 0, total = 0;
+            var currentTitle = titles[i].value;
+            var earnedArray = document.getElementsByName(currentTitle + "-earned[]");
+            var totalArray = document.getElementsByName(currentTitle + "-total[]");
+            var earned = 0;
+            var total = 0;
+
             for (var j = 0; j < earnedArray.length; j++) {
                 earned += parseInt(earnedArray[j].value);
                 total += parseInt(totalArray[j].value);
             }
-            alert("Earned" + earned);
-            alert("Total" + total);
-            weighted = (earned / total) * weights[i].value;
+
+            var row = document.getElementById("totalRowData");
+
+            var td = document.createElement("td");
+            td.setAttribute("align", "center");
+
+            var div = document.createElement("div");
+            div.setAttribute("class", "input-group");
+
+            var span1 = document.createElement("span");
+            span1.setAttribute("class", "input-group-addon");
+            var t1 = document.createTextNode(currentTitle.charAt(0).toUpperCase());
+            span1.appendChild(t1);
+
+            var input1 = document.createElement("input");
+            input1.style.backgroundColor = "#FFFFFF";
+            input1.style.textAlign = "center";
+            input1.setAttribute("type", "text");
+            input1.setAttribute("class", "form-control");
+            input1.setAttribute("value", String(earned));
+            input1.readOnly;
+
+            var span2 = document.createElement("span");
+            span2.setAttribute("class", "input-group-addon");
+            span2.style.borderLeft = "0";
+            span2.style.borderRight = "0";
+            var t2 = document.createTextNode("--");
+            span2.appendChild(t2);
+
+            var input2 = document.createElement("input");
+            input2.style.backgroundColor = "#FFFFFF";
+            input2.style.textAlign = "center";
+            input2.setAttribute("type", "text");
+            input2.setAttribute("class", "form-control");
+            input2.setAttribute("value", String(total));
+            input2.readOnly;
+
+
+            //assign parent and child's appropriately
+            div.appendChild(span1);
+            div.appendChild(input1);
+            div.appendChild(span2);
+            div.appendChild(input2);
+            td.appendChild(div);
+            row.appendChild(td);
+
+
+            //calculations
+            overallEarned += earned;
+            overallTotal += total;
+            weighted += (earned/total) * weights[i].value;
         }
-        alert(weighted);
-        totalWeighted += weighted;
-        alert(totalWeighted);
+
+        //Create Rest of the Layout
+        var div
+        var divTotal = document.createElement("div");
+        div.setAttribute("class", "input-group totalCombinedInput");
+
+        var spanTotal = document.createElement("span");
+        span1.setAttribute("class", "input-group-addon");
+        var t1 = document.createTextNode("Overall Total");
+        span1.appendChild(t1);
+
+        var inputEarnedTotal = document.createElement("input");
+        input1.style.backgroundColor = "#FFFFFF";
+        input1.style.textAlign = "center";
+        input1.setAttribute("type", "text");
+        input1.setAttribute("class", "form-control");
+        input1.setAttribute("value", String(overallEarned));
+        input1.readOnly;
+
+        var spanTotal2 = document.createElement("span");
+        span2.setAttribute("class", "input-group-addon");
+        span2.style.borderLeft = "0";
+        span2.style.borderRight = "0";
+        var t2 = document.createTextNode("--");
+        span2.appendChild(t2);
+
+        var inputTotalTotal = document.createElement("input");
+        input2.style.backgroundColor = "#FFFFFF";
+        input2.style.textAlign = "center";
+        input2.setAttribute("type", "text");
+        input2.setAttribute("class", "form-control");
+        input2.setAttribute("value", String(overallTotal));
+        input2.readOnly;
+
     });
 });
 
