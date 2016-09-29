@@ -194,8 +194,8 @@ $(function () {
         var weights = document.getElementsByName("weights[]");
         var overallTotal = 0;
         var overallEarned = 0;
-        var weighted;
-        var nonWeighted;
+        var weighted = 0;
+        var nonWeighted = 0;
         for (var i = 0; i < titles.length; i++) {
             var currentTitle = titles[i].value;
             var earnedArray = document.getElementsByName(currentTitle + "-earned[]");
@@ -260,45 +260,28 @@ $(function () {
             weighted += (earned/total) * weights[i].value;
         }
 
-        //Create Rest of the Layout
-        // var divParentTotal = document.getElementById("overallTotalDiv");
-        // var divTotal = document.createElement("div");
-        // div.setAttribute("class", "input-group totalCombinedInput");
-        //
-        // var spanTotal = document.createElement("span");
-        // spanTotal.setAttribute("class", "input-group-addon");
-        // var totalText1 = document.createTextNode("Overall Total");
-        // spanTotal.appendChild(totalText1);
-        //
-        // var inputEarnedTotal = document.createElement("input");
-        // inputEarnedTotal.style.backgroundColor = "#FFFFFF";
-        // inputEarnedTotal.style.textAlign = "center";
-        // inputEarnedTotal.setAttribute("type", "text");
-        // inputEarnedTotal.setAttribute("class", "form-control");
-        // inputEarnedTotal.setAttribute("value", String(overallEarned));
-        // inputEarnedTotal.readOnly;
-        //
-        // var spanTotal2 = document.createElement("span");
-        // spanTotal2.setAttribute("class", "input-group-addon");
-        // spanTotal2.style.borderLeft = "0";
-        // spanTotal2.style.borderRight = "0";
-        // var totalText2 = document.createTextNode("--");
-        // span2.appendChild(totalText2);
-        //
-        // var inputTotalTotal = document.createElement("input");
-        // inputTotalTotal.style.backgroundColor = "#FFFFFF";
-        // inputTotalTotal.style.textAlign = "center";
-        // inputTotalTotal.setAttribute("type", "text");
-        // inputTotalTotal.setAttribute("class", "form-control");
-        // inputTotalTotal.setAttribute("value", String(overallTotal));
-        // inputTotalTotal.readOnly;
-        //
-        // divTotal.appendChild(spanTotal);
-        // divTotal.appendChild(inputEarnedTotal);
-        // divTotal.appendChild(spanTotal2);
-        // divTotal.appendChild(inputTotalTotal);
-        // divParentTotal.appendChild(divTotal);
+        //set grand total
+        var grandEarend = document.getElementById("grandEarned");
+        grandEarend.setAttribute("value", String(overallEarned));
 
+        var grandTotal = document.getElementById("grandTotal");
+        grandTotal.setAttribute("value", String(overallTotal));
+
+        weighted = weighted.toFixed(2);
+        nonWeighted = ((overallEarned/overallTotal)*100).toFixed(2);
+
+
+        var wProgress = document.getElementById("weightedProgress");
+        wProgress.setAttribute("aria-valuenow", String(weighted));
+        wProgress.style.width = weighted + "%";
+        var wProgressText = document.createTextNode(weighted + "%");
+        wProgress.appendChild(wProgressText);
+
+        var nwProgress = document.getElementById("nonWeightedProgress");
+        nwProgress.setAttribute("aria-valuenow", String(nonWeighted));
+        nwProgress.style.width = nonWeighted + "%";
+        var nwProgressText = document.createTextNode(nonWeighted + "%");
+        nwProgress.appendChild(nwProgressText);
     });
 });
 
