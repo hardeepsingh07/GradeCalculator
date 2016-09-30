@@ -71,3 +71,11 @@ h4 {
  }
 
 
+#progress {
+    background-color: white;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+

@@ -7,6 +7,8 @@
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="gradeCalculatorJS.js"></script>
+    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/circle.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -139,13 +141,14 @@
                 </div>
             </div>
 
-            <!--<div class="c100 p52 orange">-->
-            <!--<span>25%</span>-->
-            <!--<div class="slice">-->
-            <!--<div class="bar"></div>-->
-            <!--<div class="fill"></div>-->
-            <!--</div>-->
-            <!--</div>-->
+            <div id="circularBar" class="c100 green center">
+                <span id="letterGradeSpan"></span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+
 
         </div>
     </div>

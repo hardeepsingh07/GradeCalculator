@@ -168,26 +168,6 @@ $(function () {
         e.preventDefault();
         $(this).parent().parent().remove();
     }).on('click', '#test', function (e) {
-        // //Get Values of Title
-        // var totalWeighted;
-        // var weighted;
-        // var titles = document.getElementsByName("category[]");
-        // var weights = document.getElementsByName("weights[]");
-        // for (var i = 0; i < titles.length; i++) {
-        //     var earnedArray = document.getElementsByName(titles[i].value + "-earned[]");
-        //     var totalArray = document.getElementsByName(titles[i].value + "-total[]");
-        //     var earned = 0, total = 0;
-        //     for (var j = 0; j < earnedArray.length; j++) {
-        //         earned += parseInt(earnedArray[j].value);
-        //         total += parseInt(totalArray[j].value);
-        //     }
-        //     alert("Earned" + earned);
-        //     alert("Total" + total);
-        //     weighted = (earned / total) * weights[i].value;
-        // }
-        // alert(weighted);
-        // totalWeighted += weighted;
-        // alert(totalWeighted);
         document.getElementById('totalPanel').style.display = "block";
 
         var titles = document.getElementsByName("category[]");
@@ -195,7 +175,8 @@ $(function () {
         var overallTotal = 0;
         var overallEarned = 0;
         var weighted = 0;
-        var nonWeighted = 0;
+        var nonWeighted;
+        var letterGrade;
         for (var i = 0; i < titles.length; i++) {
             var currentTitle = titles[i].value;
             var earnedArray = document.getElementsByName(currentTitle + "-earned[]");
@@ -257,7 +238,7 @@ $(function () {
             //calculations
             overallEarned += earned;
             overallTotal += total;
-            weighted += (earned/total) * weights[i].value;
+            weighted += (earned / total) * weights[i].value;
         }
 
         //set grand total
@@ -268,7 +249,7 @@ $(function () {
         grandTotal.setAttribute("value", String(overallTotal));
 
         weighted = weighted.toFixed(2);
-        nonWeighted = ((overallEarned/overallTotal)*100).toFixed(2);
+        nonWeighted = ((overallEarned / overallTotal) * 100).toFixed(2);
 
 
         var wProgress = document.getElementById("weightedProgress");
@@ -282,6 +263,31 @@ $(function () {
         nwProgress.style.width = nonWeighted + "%";
         var nwProgressText = document.createTextNode(nonWeighted + "%");
         nwProgress.appendChild(nwProgressText);
+
+
+        var circularBar = document.getElementById("circularBar");
+        circularBar.classList += (" p" + weighted.split(".")[0]);
+
+        if (weighted >= 90) {
+            letterGrade = "A";
+        }
+        else if (weighted >= 80) {
+            letterGrade = "B";
+        }
+        else if (weighted >= 70) {
+            letterGrade = "C";
+        }
+        else if (weighted >= 60) {
+            letterGrade = "D";
+        }
+        else {
+            letterGrade = "F";
+        }
+
+        var letterGradeSpan = document.getElementById("letterGradeSpan");
+        var lg = document.createTextNode(letterGrade);
+        letterGradeSpan.appendChild(lg);
+
     });
 });
 
