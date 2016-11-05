@@ -32,7 +32,7 @@
         <div class="panel-heading">
             <i class="glyphicon glyphicon-knight"></i>
             <span class="caption-subject text-uppercase"> Weights </span>
-            <button class="btn btn-success btn-add-weight pull-right" type="button">
+            <button class="btn btn-success btn-add-weight pull-right headerButton" type="button">
                 <i class="glyphicon glyphicon-plus gs"></i>
             </button>
         </div>
@@ -82,9 +82,12 @@
         <div class="panel-heading">
             <i class="glyphicon glyphicon-education"></i>
             <span class="caption-subject text-uppercase"> Calculations </span>
+            <button id="refresh" class="btn btn-success pull-right headerButton" type="button">
+                Refresh
+            </button>
         </div>
 
-        <div class="panel-body" id="totalPanel" STYLE="display: none">
+        <div href="index.html" class="panel-body" id="totalPanel" STYLE="display: none">
             <table id="totalTable" align="center">
                 <caption>Total Scores</caption>
                 <tbody id="totalTableBody">
@@ -151,7 +154,5 @@
         </div>
     </div>
 </div>
-
-<input type="button" class="btn btn-primary" id="test" value="Check"/>
 </body>
 </html>

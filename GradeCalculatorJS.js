@@ -144,7 +144,9 @@ $(function () {
 
         //remove the table associated with weight
         var divElement = document.getElementById(text + "-table");
-        divElement.remove();
+        if(divElement != null) {
+            divElement.remove();
+        }
         count--;
         return false;
     }).on('click', '.btn-create-table', function (e) {
@@ -167,8 +169,9 @@ $(function () {
     }).on('click', '.btn-remove-score', function (e) {
         e.preventDefault();
         $(this).parent().parent().remove();
-    }).on('click', '#test', function (e) {
+    }).on('click', '#refresh', function (e) {
         document.getElementById('totalPanel').style.display = "block";
+        $( "#totalPanel" ).load("/index.html");
 
         var titles = document.getElementsByName("category[]");
         var weights = document.getElementsByName("weights[]");

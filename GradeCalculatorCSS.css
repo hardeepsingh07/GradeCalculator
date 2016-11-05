@@ -24,11 +24,14 @@
 td {
     padding: 5px;
 }
-.btn-add-weight {
+.headerButton {
     width: 50px;
     margin-top: -7px;
     margin-right: -7px;
+    border-radius: 35px;
+    width: 100px;
 }
+
 .btn-create-table {
     margin-top: 5px;
     width: 150px;
